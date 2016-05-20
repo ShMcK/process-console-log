@@ -135,5 +135,4 @@ prune.log = function() {
 };
 prune.forEachProperty = forEachProperty; // you might want to also assign it to Object.forEachProperty
 
-if (typeof module !== "undefined") module.exports = prune;
-else JSON.prune = prune;
+export default prune;

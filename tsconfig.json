@@ -23,7 +23,8 @@
     "files": [
         "src/typings/logger.d.ts",
         "src/index.ts",
-        "src/json-prune.ts"
+        "src/parse.ts",
+        "src/prune.ts"
     ],
     "exclude": [
         "node_modules"
