@@ -1,0 +1,24 @@
+{
+  "name": "process-logger",
+  "version": "1.0.0",
+  "description": "Override console.log in a Node.js child process to return properly typed output.",
+  "main": "lib/parse.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShMcK/process-logger.git"
+  },
+  "keywords": [
+    "node",
+    "child-process",
+    "logger"
+  ],
+  "author": "Shawn McKay <shawn.j.mckay@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ShMcK/process-logger/issues"
+  },
+  "homepage": "https://github.com/ShMcK/process-logger#readme"
+}
