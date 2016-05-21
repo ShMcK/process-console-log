@@ -1,4 +1,4 @@
-export default function parseLog(logged: Type[]) {
+export default function parseLog(logged: Type[]): void {
   return logged.map((item) => {
     switch (item.type) {
       case 'string':

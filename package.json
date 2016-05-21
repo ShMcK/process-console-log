@@ -4,7 +4,7 @@
   "description": "Override console.log in a Node.js child process to return properly typed output.",
   "main": "lib/parse.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "ava"
   },
   "repository": {
     "type": "git",
@@ -15,10 +15,19 @@
     "child-process",
     "logger"
   ],
+  "files": [
+    "README.md",
+    "package.json",
+    ".gitignore",
+    "lib"
+  ],
   "author": "Shawn McKay <shawn.j.mckay@gmail.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ShMcK/process-logger/issues"
   },
-  "homepage": "https://github.com/ShMcK/process-logger#readme"
+  "homepage": "https://github.com/ShMcK/process-logger#readme",
+  "devDependencies": {
+    "ava": "^0.14.0"
+  }
 }

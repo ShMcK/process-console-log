@@ -22,7 +22,8 @@
     ],
     "files": [
         "src/typings/logger.d.ts",
-        "src/index.ts",
+        "src/assign-types.ts",
+        "src/logger.ts",
         "src/parse.ts",
         "src/prune.ts"
     ],
