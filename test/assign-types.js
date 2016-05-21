@@ -76,3 +76,29 @@ test('multiple numbers', t => {
 	}];
 	t.deepEqual(assignTypes(1, 2), expected);
 });
+
+test('large objects', t => {
+	const input = {
+		a: {
+			b: {
+				c: {
+					d: 2
+				}
+			}
+		}
+	};
+	const expected = [{
+		type: 'object',
+		output: input
+	}];
+	t.deepEqual(assignTypes(input), expected);
+});
+
+test('nested arrays', t => {
+	const input = [1, [2, [3, [4, [5]]]]];
+	const expected = [{
+		type: 'array',
+		output: input
+	}];
+	t.deepEqual(assignTypes(input), expected);
+})

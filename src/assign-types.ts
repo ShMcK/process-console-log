@@ -1,5 +1,3 @@
-import prune from './prune';
-
 function getType(arg: any): string {
   switch (Object.prototype.toString.call(arg)) {
     case '[object Array]':

@@ -1,33 +1,40 @@
 {
-  "name": "process-logger",
-  "version": "1.0.0",
-  "description": "Override console.log in a Node.js child process to return properly typed output.",
-  "main": "lib/parse.js",
-  "scripts": {
-    "test": "ava"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ShMcK/process-logger.git"
-  },
-  "keywords": [
-    "node",
-    "child-process",
-    "logger"
-  ],
-  "files": [
-    "README.md",
-    "package.json",
-    ".gitignore",
-    "lib"
-  ],
-  "author": "Shawn McKay <shawn.j.mckay@gmail.com>",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ShMcK/process-logger/issues"
-  },
-  "homepage": "https://github.com/ShMcK/process-logger#readme",
-  "devDependencies": {
-    "ava": "^0.14.0"
-  }
+    "name": "process-logger",
+    "version": "1.0.0",
+    "description": "Override console.log in a Node.js child process to return properly typed output.",
+    "main": "lib/parse.js",
+    "scripts": {
+        "test": "ava"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ShMcK/process-logger.git"
+    },
+    "keywords": [
+        "node",
+        "child-process",
+        "logger"
+    ],
+    "files": [
+        "README.md",
+        "package.json",
+        ".gitignore",
+        "lib"
+    ],
+    "author": "Shawn McKay <shawn.j.mckay@gmail.com>",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/ShMcK/process-logger/issues"
+    },
+    "homepage": "https://github.com/ShMcK/process-logger#readme",
+    "devDependencies": {
+        "ava": "^0.14.0",
+        "sinon": "^1.17.4"
+    },
+    "ava": {
+        "source": [
+            "test/*.js"
+        ],
+        "serial": true
+    }
 }

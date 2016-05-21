@@ -24,8 +24,7 @@
         "src/typings/logger.d.ts",
         "src/assign-types.ts",
         "src/logger.ts",
-        "src/parse.ts",
-        "src/prune.ts"
+        "src/parser.ts"
     ],
     "exclude": [
         "node_modules"
