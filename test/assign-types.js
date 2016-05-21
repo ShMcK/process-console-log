@@ -2,7 +2,7 @@ import test from 'ava';
 import assignTypes from '../lib/assign-types';
 
 test('assigns string', t => {
-	const input = ['This is a string'];
+	const input = 'This is a string';
 	const expected = [{
 		type: 'string',
 		output: 'This is a string'
@@ -11,7 +11,7 @@ test('assigns string', t => {
 });
 
 test('assigns number', t => {
-	const input = [12];
+	const input = 12;
 	const expected = [{
 		type: 'number',
 		output: 12
@@ -20,10 +20,10 @@ test('assigns number', t => {
 });
 
 test('assigns object', t => {
-	const input = [{
+	const input = {
 		a: 1,
 		b: 2
-	}];
+	};
 	const expected = [{
 		type: 'object',
 		output: {
@@ -35,9 +35,7 @@ test('assigns object', t => {
 });
 
 test('assigns array', t => {
-	const input = [
-		[1, 2, 3]
-	];
+	const input = [1, 2, 3];
 	const expected = [{
 		type: 'array',
 		output: [1, 2, 3]
@@ -47,7 +45,7 @@ test('assigns array', t => {
 
 test('assigns date', t => {
 	var date = new Date();
-	const input = [date];
+	const input = date;
 	const expected = [{
 		type: 'date',
 		output: date
@@ -56,7 +54,6 @@ test('assigns date', t => {
 });
 
 test('multiple strings', t => {
-	const input = ['This is a string', 'Another string'];
 	const expected = [{
 		type: 'string',
 		output: 'This is a string'
@@ -64,6 +61,18 @@ test('multiple strings', t => {
 		type: 'string',
 		output: 'Another string'
 	}];
-	console.log(assignTypes(input))
-	t.deepEqual(assignTypes(input), expected);
+	t.deepEqual(assignTypes(
+		'This is a string', 'Another string'
+	), expected);
+});
+
+test('multiple numbers', t => {
+	const expected = [{
+		type: 'number',
+		output: 1
+	}, {
+		type: 'number',
+		output: 2
+	}];
+	t.deepEqual(assignTypes(1, 2), expected);
 });

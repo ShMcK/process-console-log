@@ -1,28 +1,19 @@
 import prune from './prune';
 
-export default function assignTypes(args: any[]): Type[] {
-  const types = args.map((arg) => typeof arg);
-
-  // if any output is a string, type is string
-  if (types.indexOf('string') > -1) {
-    return [].concat({
-      type: 'string',
-      output: args.join(' ')
-    });
+function getType(arg: any): string {
+  switch (Object.prototype.toString.call(arg)) {
+    case '[object Array]':
+      return 'array';
+    case '[object Date]':
+      return 'date';
+    default:
+      return typeof arg;
   }
+}
 
-  return args.map(function(arg, index) {
-    let type = null;
-    switch (Object.prototype.toString.call(arg) {
-      case '[object Array]':
-        type = 'array';
-        break;
-      case '[object Date]':
-        type = 'date';
-        break;
-      default:
-        type = typeof arg;
-    }
-    return { type, output: arg };
+// (a, b, c) => [{type, output}]
+export default function assignTypes(...args: any[]): Type[] {
+  return args.map((arg) => {
+    return { type: getType(arg), output: arg };
   });
 }
