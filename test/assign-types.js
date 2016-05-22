@@ -53,6 +53,42 @@ test('assigns date', t => {
 	t.deepEqual(assignTypes(input), expected);
 });
 
+test('assigns boolean', t => {
+	const input = true;
+	const expected = [{
+		type: 'boolean',
+		output: true
+	}];
+	t.deepEqual(assignTypes(input), expected);
+});
+
+test('assigns undefined', t => {
+	const input = undefined;
+	const expected = [{
+		type: 'undefined',
+		output: undefined
+	}];
+	t.deepEqual(assignTypes(input), expected);
+});
+
+test('assigns null', t => {
+	const input = null;
+	const expected = [{
+		type: 'null',
+		output: null
+	}];
+	t.deepEqual(assignTypes(input), expected);
+});
+
+test('assigns NaN', t => {
+	const input = NaN;
+	const expected = [{
+		type: 'NaN',
+		output: NaN
+	}];
+	t.deepEqual(assignTypes(input).type, expected.type);
+});
+
 test('multiple strings', t => {
 	const expected = [{
 		type: 'string',

@@ -4,9 +4,17 @@ function getType(arg: any): string {
       return 'array';
     case '[object Date]':
       return 'date';
-    default:
-      return typeof arg;
+    case '[object Null]':
+      return 'null';
+    case '[object Number]':
+      // NaN !== NaN
+      if (arg !== arg) {
+        return 'NaN';
+      } else {
+        return 'number';
+      }
   }
+  return typeof arg;
 }
 
 // (a, b, c) => [{type, output}]
