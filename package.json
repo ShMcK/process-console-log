@@ -2,7 +2,7 @@
     "name": "process-logger",
     "version": "1.0.0",
     "description": "Override console.log in a Node.js child process to return properly typed output.",
-    "main": "lib/parse.js",
+    "main": "lib/index.js",
     "scripts": {
         "test": "ava"
     },
