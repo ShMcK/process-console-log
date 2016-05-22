@@ -25,14 +25,24 @@ function stripArray(output: string): string {
 }
 
 // (a, b, c) => [{type, output}]
-export default function assignTypes(...args: any[]): Type[] {
-  return args.map((output: any) => {
+export default function assignTypes(...args: any[]): string[] {
+  const types = args.map((output: any) => {
     output = stripArray(output);
     const type: string = getType(output);
-    if (type === 'object' || type === 'array') {
-      // display nested
-      output = inspect(output, inspectOptions);
+    switch (type) {
+      case 'object':
+      case 'array':
+        output = inspect(output, inspectOptions);
+        break;
+      case 'undefined':
+      case 'null':
+      case 'NaN':
+        output = type;
+        break;
     }
-    return { type, output };
+    // output = typeof output !== 'string' ? JSON.stringify(output) : output;
+    const print = JSON.stringify({ type, output: output.toString() });
+    return print;
   });
+  return types;
 }

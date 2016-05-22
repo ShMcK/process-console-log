@@ -1,10 +1,10 @@
 import assignTypes from './assign-types';
 
 export default function initProcessLogger(): void {
-  if (console && console.log) {
-    const originalLog = console.log;
+  if (global.console && global.console.log) {
+    const originalLog = global.console.log;
 
-    console.log = function(...args: any[]) {
+    global.console.log = function(...args: any[]) {
       originalLog.apply(this, assignTypes(args));
     };
   };

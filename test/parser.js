@@ -12,67 +12,75 @@ test.afterEach(t => {
 });
 
 test('parse a simple string', t => {
-	parser([{
+	const logged = parser([JSON.stringify({
 		type: 'string',
 		output: 'This is a string'
-	}]);
+	})]);
+	console.log(logged);
 	t.is(console.log.calledWith('This is a string'), true);
 });
 
 test('parse a simple number', t => {
-	parser([{
+	const logged = parser([JSON.stringify({
 		type: 'number',
 		output: '2'
-	}]);
+	})]);
+	console.log(logged);
 	t.is(console.log.calledWith(2), true);
 });
 
 test('parse a simple boolean', t => {
-	parser([{
+	const logged = parser([JSON.stringify({
 		type: 'boolean',
 		output: 'true'
-	}]);
+	})]);
+	console.log(logged);
 	t.is(console.log.calledWith(true), true);
 });
 
 test('parse a simple date', t => {
 	const date = new Date();
-	parser([{
+	const logged = parser([JSON.stringify({
 		type: 'date',
 		output: date
-	}]);
+	})]);
+	console.log(logged);
 	t.is(console.log.calledWith(date), true);
 });
 
 test('parse undefined', t => {
-	parser([{
+	const logged = parser([JSON.stringify({
 		type: 'undefined',
-		output: undefined
-	}]);
+		output: 'undefined'
+	})]);
+	console.log(logged);
 	t.is(console.log.calledWith(undefined), true);
 });
 
 test('parse null', t => {
-	parser([{
+	const logged = parser([JSON.stringify({
 		type: 'null',
-		output: null
-	}]);
+		output: 'null'
+	})]);
+	console.log(logged);
 	t.is(console.log.calledWith(null), true);
 });
 
 test('parse NaN', t => {
-	parser([{
+	const logged = parser([JSON.stringify({
 		type: 'NaN',
-		output: NaN
-	}]);
+		output: 'NaN'
+	})]);
+	console.log(logged);
 	t.is(console.log.calledWith(NaN), true);
 });
 
 test('parse a simple object', t => {
-	parser([{
+	const logged = parser([JSON.stringify({
 		type: 'object',
 		output: '{"a": 1, "b": 2}'
-	}]);
+	})]);
+	console.log(logged);
 	t.is(console.log.calledWith({
 		a: 1,
 		b: 2
@@ -80,18 +88,20 @@ test('parse a simple object', t => {
 });
 
 test('parse a simple array', t => {
-	parser([{
+	const logged = parser([JSON.stringify({
 		type: 'array',
 		output: '[1, 2, 3]'
-	}]);
+	})]);
+	console.log(logged);
 	t.is(console.log.calledWith([1, 2, 3]), true);
 });
 
 test('parse a nested object', t => {
-	parser([{
+	const logged = parser([JSON.stringify({
 		type: 'object',
 		output: '{"a": { "b": { "c": { "d": { "e": 1 }}}}}'
-	}]);
+	})]);
+	console.log(logged);
 	t.is(console.log.calledWith({
 		a: {
 			b: {
@@ -106,9 +116,10 @@ test('parse a nested object', t => {
 });
 
 test('parse a nested array', t => {
-	parser([{
+	const logged = parser([JSON.stringify({
 		type: 'array',
 		output: '[1, [2, [3, [4, [5]]]]]'
-	}]);
+	})]);
+	console.log(logged);
 	t.is(console.log.calledWith([1, [2, [3, [4, [5]]]]]), true);
 });
