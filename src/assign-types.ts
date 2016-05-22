@@ -20,9 +20,14 @@ const inspectOptions = {
   depth: null
 };
 
+function stripArray(output: string): string {
+  return output[0]; // .match(/^\[\s(.+)\s\]$/)
+}
+
 // (a, b, c) => [{type, output}]
 export default function assignTypes(...args: any[]): Type[] {
   return args.map((output: any) => {
+    output = stripArray(output);
     const type: string = getType(output);
     if (type === 'object' || type === 'array') {
       // display nested

@@ -2,7 +2,7 @@ import test from 'ava';
 import assignTypes from '../lib/assign-types';
 
 test('assigns string', t => {
-	const input = 'This is a string';
+	const input = ['This is a string'];
 	const expected = [{
 		type: 'string',
 		output: 'This is a string'
@@ -11,7 +11,7 @@ test('assigns string', t => {
 });
 
 test('assigns number', t => {
-	const input = 12;
+	const input = [12];
 	const expected = [{
 		type: 'number',
 		output: 12
@@ -20,10 +20,10 @@ test('assigns number', t => {
 });
 
 test('assigns object', t => {
-	const input = {
+	const input = [{
 		a: 1,
 		b: 2
-	};
+	}];
 	const expected = [{
 		type: 'object',
 		output: '{ a: 1, b: 2 }'
@@ -32,7 +32,9 @@ test('assigns object', t => {
 });
 
 test('assigns array', t => {
-	const input = [1, 2, 3];
+	const input = [
+		[1, 2, 3]
+	];
 	const expected = [{
 		type: 'array',
 		output: '[ 1, 2, 3 ]'
@@ -42,7 +44,7 @@ test('assigns array', t => {
 
 test('assigns date', t => {
 	var date = new Date();
-	const input = date;
+	const input = [date];
 	const expected = [{
 		type: 'date',
 		output: date
@@ -51,7 +53,7 @@ test('assigns date', t => {
 });
 
 test('assigns boolean', t => {
-	const input = true;
+	const input = [true];
 	const expected = [{
 		type: 'boolean',
 		output: true
@@ -60,7 +62,7 @@ test('assigns boolean', t => {
 });
 
 test('assigns undefined', t => {
-	const input = undefined;
+	const input = [undefined];
 	const expected = [{
 		type: 'undefined',
 		output: undefined
@@ -69,7 +71,7 @@ test('assigns undefined', t => {
 });
 
 test('assigns null', t => {
-	const input = null;
+	const input = [null];
 	const expected = [{
 		type: 'null',
 		output: null
@@ -78,7 +80,7 @@ test('assigns null', t => {
 });
 
 test('assigns NaN', t => {
-	const input = NaN;
+	const input = [NaN];
 	const expected = [{
 		type: 'NaN',
 		output: NaN
@@ -94,9 +96,7 @@ test('multiple strings', t => {
 		type: 'string',
 		output: 'Another string'
 	}];
-	t.deepEqual(assignTypes(
-		'This is a string', 'Another string'
-	), expected);
+	t.deepEqual(assignTypes(['This is a string'], ['Another string']), expected);
 });
 
 test('multiple numbers', t => {
@@ -107,7 +107,7 @@ test('multiple numbers', t => {
 		type: 'number',
 		output: 2
 	}];
-	t.deepEqual(assignTypes(1, 2), expected);
+	t.deepEqual(assignTypes([1], [2]), expected);
 });
 
 test('large objects', t => {
@@ -124,7 +124,7 @@ test('large objects', t => {
 		type: 'object',
 		output: '{ a: { b: { c: { d: 2 } } } }'
 	}];
-	t.deepEqual(assignTypes(input), expected);
+	t.deepEqual(assignTypes([input]), expected);
 });
 
 test('nested arrays', t => {
@@ -133,5 +133,5 @@ test('nested arrays', t => {
 		type: 'array',
 		output: '[ 1, [ 2, [ 3, [ 4, [ 5 ] ] ] ] ]'
 	}];
-	t.deepEqual(assignTypes(input), expected);
+	t.deepEqual(assignTypes([input]), expected);
 })
