@@ -26,10 +26,7 @@ test('assigns object', t => {
 	};
 	const expected = [{
 		type: 'object',
-		output: {
-			a: 1,
-			b: 2
-		}
+		output: '{ a: 1, b: 2 }'
 	}];
 	t.deepEqual(assignTypes(input), expected);
 });
@@ -38,7 +35,7 @@ test('assigns array', t => {
 	const input = [1, 2, 3];
 	const expected = [{
 		type: 'array',
-		output: [1, 2, 3]
+		output: '[ 1, 2, 3 ]'
 	}];
 	t.deepEqual(assignTypes(input), expected);
 });
@@ -125,7 +122,7 @@ test('large objects', t => {
 	};
 	const expected = [{
 		type: 'object',
-		output: input
+		output: '{ a: { b: { c: { d: 2 } } } }'
 	}];
 	t.deepEqual(assignTypes(input), expected);
 });
@@ -134,7 +131,7 @@ test('nested arrays', t => {
 	const input = [1, [2, [3, [4, [5]]]]];
 	const expected = [{
 		type: 'array',
-		output: input
+		output: '[ 1, [ 2, [ 3, [ 4, [ 5 ] ] ] ] ]'
 	}];
 	t.deepEqual(assignTypes(input), expected);
 })

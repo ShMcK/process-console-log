@@ -34,7 +34,8 @@
     },
     "ava": {
         "source": [
-            "test/*.js"
+            "test/*.js",
+            "!test/files"
         ],
         "serial": true
     }

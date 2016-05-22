@@ -22,6 +22,7 @@
     ],
     "files": [
         "src/typings/logger.d.ts",
+        "src/typings/node.d.ts",
         "src/assign-types.ts",
         "src/index.ts",
         "src/logger.ts",
