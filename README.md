@@ -11,6 +11,10 @@ Types are difficult to determine from a child process output.
 
 Is the output a 'string' or a 'number'?
 
+`console.log({a: {b: { c: {d: 1}}}})` -> '[object Object]'
+
+What's inside the object?
+
 ## Solution
 
 ```js
@@ -23,4 +27,6 @@ Parse the output.
 ```js
 import {parser} from './process-logger';
 
-parser(output); // logs: '12' 12
+parser(output1); // logs: '12' 12
+parser(output2); // logs: {a: {b: {c: {d: 1}}}}
+```
