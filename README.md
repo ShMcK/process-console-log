@@ -18,16 +18,6 @@ import {initProcessLogger} from 'process-logger';
 initProcessLogger();// overrides window.console.log
 ```
 
-```js
-[{
-  type: 'string',
-  output: '12'
-}, {
-  type: 'number':
-  output: 12
-}]
-```
-
 Parse the output.
 
 ```js
