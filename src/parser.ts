@@ -21,7 +21,7 @@ export default function parseLog(logged: Type[]): void {
       default:
         return `Error. type: ${type}, output: ${output}`;
     }
-  }).forEach((result) => {
+  }).forEach((result: Type) => {
     console.log(result);
   });
 }

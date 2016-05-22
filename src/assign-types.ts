@@ -10,24 +10,23 @@ function getType(output: any): string {
       return 'null';
     case '[object Number]':
       // NaN !== NaN
-      if (output !== output) {
-        return 'NaN';
-      } else {
-        return 'number';
-      }
+      return (output !== output) ? 'NaN' : 'number';
   }
   return typeof output;
 }
 
+// https://nodejs.org/api/util.html#util_util_inspect_object_options
+const inspectOptions = {
+  depth: null
+};
+
 // (a, b, c) => [{type, output}]
 export default function assignTypes(...args: any[]): Type[] {
-  return args.map((output) => {
-    const type = getType(output);
+  return args.map((output: any) => {
+    const type: string = getType(output);
     if (type === 'object' || type === 'array') {
       // display nested
-      output = inspect(output, {
-        depth: null
-      });
+      output = inspect(output, inspectOptions);
     }
     return { type, output };
   });
