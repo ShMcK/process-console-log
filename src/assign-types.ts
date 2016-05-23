@@ -25,8 +25,8 @@ function stripArray(output: string): string {
 }
 
 // (a, b, c) => [{type, output}]
-export default function assignTypes(...args: any[]): string[] {
-  const types = args.map((output: any) => {
+export default function assignTypes(...args: any[]): string {
+  return JSON.stringify(args.map((output: any) => {
     output = stripArray(output);
     const type: string = getType(output);
     switch (type) {
@@ -39,10 +39,9 @@ export default function assignTypes(...args: any[]): string[] {
       case 'NaN':
         output = type;
         break;
+      default:
+        output = output.toString();
     }
-    // output = typeof output !== 'string' ? JSON.stringify(output) : output;
-    const print = JSON.stringify({ type, output: output.toString() });
-    return print;
-  });
-  return types;
+    return { type, output };
+  }));
 }

@@ -26,5 +26,10 @@ function parseType({type, output}): any {
 }
 
 export default function parseLog(logged: string): any {
-  return parseType(JSON.parse(logged));
+  const logs: Type[] = JSON.parse(logged);
+  const out = logs.map((log: Type) => {
+    return parseType(log);
+  });
+  console.log(...out);
+
 }
