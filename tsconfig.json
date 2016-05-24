@@ -23,10 +23,13 @@
     "files": [
         "src/typings/logger.d.ts",
         "src/typings/node.d.ts",
-        "src/assign-types.ts",
         "src/index.ts",
-        "src/logger.ts",
-        "src/parser.ts"
+        "src/logger/assign-types.ts",
+        "src/logger/get-type.ts",
+        "src/logger/index.ts",
+        "src/logger/logger-min.ts",
+        "src/parse-log/index.ts",
+        "src/parse-log/parse-type.ts"
     ],
     "exclude": [
         "node_modules"

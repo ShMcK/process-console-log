@@ -1,4 +1,4 @@
-function parseType({type, output}): any {
+export default function parseOutputByType({type, output}): any {
   switch (type) {
     case 'string':
       return output;
@@ -16,20 +16,8 @@ function parseType({type, output}): any {
       return JSON.parse(output);
     case 'array':
     case 'object':
-      if (output[0] === "'") {
-        output = output.substring(1, output.length - 1);
-      }
       return JSON.parse(output);
     default:
       return `Error. type: ${type}, output: ${output}`;
   }
-}
-
-export default function parseLog(logged: string): any {
-  const logs: Type[] = JSON.parse(logged);
-  const out = logs.map((log: Type) => {
-    return parseType(log);
-  });
-  console.log(...out);
-
 }
