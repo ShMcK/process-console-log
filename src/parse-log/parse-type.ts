@@ -13,10 +13,16 @@ export default function parseOutputByType({type, output}): any {
     case 'NaN':
       return NaN;
     case 'boolean':
-      return JSON.parse(output);
+    case 'symbol':
     case 'array':
     case 'object':
       return JSON.parse(output);
+    case 'error':
+      if (output.match(/^Error\n/)) {
+        // stack trace
+        return output;
+      }
+      /* falls through */
     default:
       return `Error. type: ${type}, output: ${output}`;
   }

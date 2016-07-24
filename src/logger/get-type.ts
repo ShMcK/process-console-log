@@ -9,6 +9,9 @@ export default function getType(output: any): string {
     case '[object Number]':
       // NaN !== NaN
       return (output !== output) ? 'NaN' : 'number';
+    case '[object Error]':
+      return 'error';
+    default:
+      return typeof output;
   }
-  return typeof output;
 }
