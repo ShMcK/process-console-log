@@ -1,42 +1,42 @@
 {
-    "name": "process-console-log",
-    "version": "0.2.2",
-    "description": "Override console.log in a Node.js child process to return properly typed output.",
-    "main": "lib/index.js",
-    "scripts": {
-        "test": "ava"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/ShMcK/process-console-log.git"
-    },
-    "keywords": [
+	"name": "process-console-log",
+	"version": "0.2.3",
+	"description": "Override console.log in a Node.js child process to return properly typed output.",
+	"main": "lib/index.js",
+	"scripts": {
+		"test": "ava"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ShMcK/process-console-log.git"
+	},
+	"keywords": [
         "node",
         "child-process",
         "log",
         "console.log"
     ],
-    "files": [
+	"files": [
         "README.md",
         "package.json",
         ".gitignore",
         "lib"
     ],
-    "author": "Shawn McKay <shawn.j.mckay@gmail.com>",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/ShMcK/process-console-log/issues"
-    },
-    "homepage": "https://github.com/ShMcK/process-console-log#readme",
-    "devDependencies": {
-        "ava": "^0.15.2",
-        "sinon": "^1.17.5"
-    },
-    "ava": {
-        "source": [
+	"author": "Shawn McKay <shawn.j.mckay@gmail.com>",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/ShMcK/process-console-log/issues"
+	},
+	"homepage": "https://github.com/ShMcK/process-console-log#readme",
+	"devDependencies": {
+		"ava": "^0.15.2",
+		"sinon": "^1.17.5"
+	},
+	"ava": {
+		"source": [
             "test/*.js",
             "!test/files"
         ],
-        "serial": true
-    }
+		"serial": true
+	}
 }

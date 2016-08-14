@@ -1,5 +1,6 @@
 export default function parseOutputByType({type, output}): any {
   switch (type) {
+    case 'function':
     case 'string':
       return output;
     case 'date':
