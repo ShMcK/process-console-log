@@ -1,17 +1,20 @@
+const isObject = o => {
+  let a = Object.prototype.toString.call(o);
+  return a.match(/^\[object ([A-Z][a-z]+)\]/);
+};
+
+// return the type of the output
+// example:
+//  [object Date] -> 'date'
+//  string -> 'string'
 export default function getType(output: any): string {
-  switch (Object.prototype.toString.call(output)) {
-    case '[object Array]':
-      return 'array';
-    case '[object Date]':
-      return 'date';
-    case '[object Null]':
-      return 'null';
-    case '[object Number]':
-      // NaN !== NaN
+  const obj = isObject(output);
+  if (obj && obj[1]) {
+    let objType = obj[1].toLowerCase();
+    if (objType === 'number') {
       return (output !== output) ? 'NaN' : 'number';
-    case '[object Error]':
-      return 'error';
-    default:
-      return typeof output;
+    }
+    return objType;
   }
+  return typeof output;
 }
