@@ -1,6 +1,6 @@
 {
   "name": "process-console-log",
-  "version": "0.2.6",
+  "version": "1.0.0",
   "description": "Override console.log in a Node.js child process to return properly typed output.",
   "keywords": [
     "child-process",
