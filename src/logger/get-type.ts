@@ -18,3 +18,5 @@ export default function getType(output: any): string {
   }
   return typeof output;
 }
+
+console.log(getType('Ada Lovelace'));
