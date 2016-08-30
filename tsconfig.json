@@ -2,7 +2,7 @@
     "compileOnSave": false,
     "buildOnSave": false,
     "compilerOptions": {
-        "target": "ES5",
+        "target": "ES6",
         "module": "commonjs",
         "declaration": false,
         "noImplicitAny": false,
@@ -27,7 +27,6 @@
         "src/logger/assign-types.ts",
         "src/logger/get-type.ts",
         "src/logger/index.ts",
-        "src/logger/logger-min.ts",
         "src/parse-log/index.ts",
         "src/parse-log/parse-type.ts"
     ],

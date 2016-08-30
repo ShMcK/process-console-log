@@ -17,7 +17,7 @@ export default function assignTypes(...args: any[]): string {
           output = JSON.stringify(output);
           output = inspect(output, inspectOptions);
           output = output.substring(1, output.length - 1);
-          break;
+          return { type, output };
         case 'undefined':
         case 'null':
         case 'NaN':

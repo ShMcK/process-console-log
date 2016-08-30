@@ -1,6 +1,6 @@
 {
   "name": "process-console-log",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "Override console.log in a Node.js child process to return properly typed output.",
   "keywords": [
     "child-process",
@@ -26,7 +26,8 @@
     "url": "git+https://github.com/ShMcK/process-console-log.git"
   },
   "scripts": {
-    "test": "ava"
+    "test": "ava",
+    "test:watch": "ava --watch"
   },
   "devDependencies": {
     "ava": "^0.16.0",

@@ -1,3 +1,2 @@
-export {default as initProcessLogger} from './logger';
+export {default as set} from './logger';
 export {default as parseLog} from './parse-log';
-export {default as logger} from './logger/logger-min';
